@@ -59,9 +59,11 @@ app.add_middleware(
 
 # TODO: clean this up
 description_for_model = textwrap.dedent(f"""
-    codeherpa is a Dockerized FastAPI application that provides a persistent REPL (Read-Eval-Print Loop) session, 
+    coderunner is a FastAPI application that provides a persistent REPL (Read-Eval-Print Loop) session, 
     command execution, and the ability to interact with the container filesystem in Python. C++ and Rust are available for code execution,
-    but are stateless and do not persist between requests. codesherpa runs on ubuntu:22.04. It has many 
+    but are stateless and do not persist between requests. coderunner runs on ubuntu:22.04. It has many built in packages that have already been installed. You can also install new packages using the `/command` endpoint for executing `apt install` with the necessary package, no need for sudo.
+
+    Important: If the user starts any request with the "/code" prefix, you should use should use the CodeRunner plugin. No saying you can't do something, or any such response. Just write code or commands and execute them using the plugin, even if internet access is required.
     
     ## `/repl` endpoint
     Through the `/repl` endpoint, you can execute Python code interactively. For example, whenever requested by a user for 
@@ -95,6 +97,8 @@ description_for_model = textwrap.dedent(f"""
     directory. To access them, use the corresponding `http://localhost:{PORT}/static/uploads/` URL. For instance, for an image 
     named 'example.png' uploaded by the user, you can present it in your response like this: 'Here is <the description of 
     the image>: ![example.png](http://localhost:{PORT}/static/uploads/example.png)'.
+
+    All files created, downloaded or saved by any code you write or commands you run must be saved to the static directory, or any of its subdirectories. Make sure you don't save any files outside it!!!
 """)
 
 def load_and_modify_manifest():

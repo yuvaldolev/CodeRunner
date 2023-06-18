@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "codesherpa"
+name = "coderunner"
 version = "0.1.0"
-description = "CodeSherpa is a code-interpreter ChatGPT plugin. It allows ChatGPT to execute code and run commands within a Docker container."
+description = "CodeRunner is a code-interpreter ChatGPT plugin. It allows ChatGPT to execute code and run commands within a Docker container."
 authors = ["Greg Garcia <greg@garcia.casa>"]
 license = "MIT"
 readme = "README.md"
