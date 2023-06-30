@@ -1,0 +1,13 @@
+[Unit]
+Description=CodeRunner
+
+[Service]
+User=root
+Environment=TERM=xterm-256color
+ExecStart=/root/app/.venv/bin/python3 -c "import localserver.main; localserver.main.start()"
+Restart=always
+RestartSec=10
+TimeoutStopSec=90
+KillMode=process
+WorkingDirectory=/root/app
+SyslogIdentifier=CodeRunner

@@ -39,7 +39,7 @@ executors = {
     "rust": RustExecutor(),
 }
 
-PORT = 3333
+PORT = 80
 
 origins = [
     f"http://localhost:{PORT}",
